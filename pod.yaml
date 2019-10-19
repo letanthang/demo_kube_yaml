@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+  labels:
+    app: sample
+spec:
+  containers:
+    - image: letanthang/hello-world
+      name: hello-containers
+      ports:
+        - containerPort: 3000
+          name: hello
+      resources:
+        requests:
+          memory: "51Mi"
+          cpu: "50m"
+        limits:
+          memory: "75Mi"
+          cpu: "75m"
+    - image: nginx:1.12
+      name: nginx-containers
+      ports:
+        - containerPort: 80
+          name: nginx
+      resources:
+        requests:
+          memory: "51Mi"
+          cpu: "50m"
+        limits:
+          memory: "750Mi"
+          cpu: "750m"
